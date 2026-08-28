@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pairing"
+  short_description: "Plan and implement in reviewable commits"
+  default_prompt: "Use $pairing to research this task, propose a commit-by-commit plan, and implement it with me through review handoffs."
