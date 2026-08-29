@@ -74,14 +74,14 @@ Stop and let the user review. Treat follow-up as code review:
 
 - Answer questions with concrete references to the implementation.
 - When changes are requested, make only those changes, review the diff, rerun applicable checks, and issue an updated handoff for the same step.
-- If the user edits the code, inspect and validate their changes. Do not overwrite them. Rerun relevant checks before committing.
+- If the user edits the code during handover, treat those edits as part of the current step: inspect and validate them, do not overwrite them, and rerun relevant checks before committing. Include them in the step commit unless the user explicitly identifies them as unrelated.
 - Do not interpret praise or a review comment as permission to commit. Wait until the user explicitly says to proceed, continue, commit, or otherwise clearly approves advancing.
 
 ## Commit and advance
 
 When the user explicitly approves advancing:
 
-1. Reinspect the diff and staging area. Include only changes belonging to the reviewed step; never sweep unrelated changes into the commit.
+1. Reinspect the diff and staging area. Include the agent's work and any user changes made during handover for the reviewed step. Keep clearly unrelated changes out of the commit; if ownership or intent is ambiguous, resolve it from the review conversation or ask before committing.
 2. If the code changed since the last successful checks, rerun the applicable checks before committing.
 3. Create one non-amended commit for the step. Use a clear imperative title and always include a meaningful commit body describing the change and its rationale.
 4. Verify that the commit contains the intended files and that no step-related changes were left behind. Mark the committed step checked (`- [x]`) in the temporary plan without changing its scope or wording.
