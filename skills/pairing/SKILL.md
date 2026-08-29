@@ -34,6 +34,8 @@ Follow that prose with a Markdown checkbox list. Each top-level unchecked item (
 
 Design every step to be independently reviewable and as small as practical. Include only the code, tests, and documentation necessary for that step. Avoid mixing unrelated refactors with behavior changes. Use as many steps as the task genuinely needs; do not force a predetermined count.
 
+Plan for frequent runnable milestones where the user can manually exercise the integrated work, not only review code. Prefer vertical slices that connect enough layers to demonstrate real behavior, especially for UI work. Do not let a long sequence of isolated foundation steps accumulate without integration; when foundational work must come first, keep that sequence as short as practical and schedule the next user-testable integration point explicitly. In the relevant plan items, include how the user will run the work, what they can try, and what behavior they should expect.
+
 Order related steps contiguously so work on one coherent area is completed before moving to another. Group as many related steps together in the sequence as dependencies allow, while preserving small commit boundaries. For example, if a refactor affects three services, complete all planned work for service 1 before service 2, and all work for service 2 before service 3; do not alternate between services unless a technical dependency requires it. Explain any non-obvious interleaving in the plan.
 
 Present the complete understanding and plan to the user, along with the temporary file path, then wait for explicit approval or requested revisions. Do not begin implementation before approval. If the user requests revisions, investigate as needed, update the same plan file, present the complete revised plan, and wait again.
@@ -67,6 +69,7 @@ Do not include older completed steps or more than three future steps in this rev
 
 - the checks run and their outcomes;
 - any checks that could not run or any pre-existing failures;
+- manual testing instructions for the current integrated state, including how to run it, what to try, and the expected behavior; if the step is not yet user-testable, explain why and identify the next planned integration checkpoint;
 - ambiguities or follow-up choices discovered during implementation;
 - confirmation that no commit has been created yet.
 
